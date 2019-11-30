@@ -1,26 +1,38 @@
 import React, { useEffect } from "react";
-import { TextField, Paper } from "@material-ui/core";
-import { commonProps, MonthsOptions, YearsList, Spacer } from "./utils";
+import { TextField, Paper, MenuItem } from "@material-ui/core";
+import {
+  commonProps,
+  months,
+  getYearsList,
+  Spacer,
+  inputChecker,
+  isNumber,
+  isAlpha
+} from "./utils";
 import "./styles.scss";
-import { useCreditForm } from "./hooks";
+import { useCardInfo } from "./CardInfoContext";
+import { useCardViewSelector, side } from "./CardViewSelector";
 
 export default function CreditCardForm(props) {
-  let [formState, handleChange] = useCreditForm();
-
+  const [formState, handleChange] = useCardInfo();
+  const [cardSide, handleCardSide] = useCardViewSelector();
+  console.log(cardSide);
   return (
     <Paper classes={{ root: "card" }}>
       <div className="section1">
         <TextField
           label={"card number"}
           {...commonProps}
-          onChange={handleChange("number")}
+          onChange={inputChecker(16, isNumber, handleChange("number"))}
           value={formState.number}
+          onFocus={() => handleCardSide(side.font)}
         />
         <TextField
           label={"card name"}
           {...commonProps}
-          onChange={handleChange("name")}
+          onChange={inputChecker(40, isAlpha, handleChange("name"))}
           value={formState.name}
+          onFocus={() => handleCardSide(side.font)}
         />
       </div>
       <div className="section2">
@@ -30,8 +42,13 @@ export default function CreditCardForm(props) {
           {...commonProps}
           onChange={handleChange("expiryMM")}
           value={formState.expiryMM}
+          InputProps={{ onFocus: () => handleCardSide(side.font) }}
         >
-          <MonthsOptions />
+          {months.map(m => (
+            <MenuItem key={m} value={m}>
+              {m}
+            </MenuItem>
+          ))}
         </TextField>
         <TextField
           select
@@ -39,15 +56,17 @@ export default function CreditCardForm(props) {
           {...commonProps}
           onChange={handleChange("expiryYY")}
           value={formState.expiryYY}
+          InputProps={{ onFocus: () => handleCardSide(side.font) }}
         >
-          <YearsList />
+          {getYearsList()}
         </TextField>
         <Spacer />
         <TextField
           label={"cvv/cvc"}
           {...commonProps}
-          onChange={handleChange("cvv")}
-          value={formState.cvc}
+          onChange={inputChecker(3, isNumber, handleChange("cvv"))}
+          value={formState.cvv}
+          onFocus={() => handleCardSide(side.back)}
         />
       </div>
     </Paper>

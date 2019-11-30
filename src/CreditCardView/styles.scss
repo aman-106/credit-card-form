@@ -1,0 +1,122 @@
+.credit-card-section {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+
+  .transtion {
+    flex-basis: 25%;
+    position: relative;
+  }
+
+  .spacer {
+    flex-basis: 30%;
+  }
+
+  .holder {
+    position: relative;
+    top: 0;
+
+    >div {
+
+      height: 200px;
+      box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      border-radius: 6px;
+      color: rgba(0, 0, 0, 0.87);
+      transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      background-image: url("../assets/Rainbow-Vortex\ \(1\).svg");
+      // background-color: #fff;
+    }
+
+    .front-side {
+      padding: 30px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+
+      >div {
+        padding: 5px;
+      }
+
+      .logo {
+        background-image: url("../assets/Randomized-Pattern.svg");
+        width: 30px;
+        margin: 10px;
+        height: 30px;
+        border-radius: 4px;
+      }
+
+      .vaild-info {
+        display: flex;
+        flex-direction: row;
+
+        >div {
+          padding: 5px;
+        }
+      }
+
+      .card-num {
+        font-size: 26px;
+        text-align: left;
+
+        .show-nums {
+          display: flex;
+          flex-direction: row;
+
+          .num {
+            flex-basis: 5%;
+            padding: 1px;
+            width: 15px;
+            flex-grow: 1;
+          }
+        }
+      }
+
+      .name {
+        text-align: left;
+        font-style: italic;
+        font-size: 20px;
+      }
+    }
+
+    .back-side {
+      // padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      >div {
+        padding: 5px;
+        flex-basis: 20%;
+      }
+
+      .strip {
+        background-color: black;
+      }
+
+      .cvc-form {
+        display: flex;
+        flex-direction: row-reverse;
+
+        .cvc {
+          margin: 5px 20px;
+          background-color: #fff;
+          padding: 5px;
+          text-align: left;
+          font-size: 20px;
+
+          .cvv-nums {
+            display: flex;
+            flex-direction: row;
+
+            .num {
+              width: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

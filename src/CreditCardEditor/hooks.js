@@ -7,7 +7,7 @@ export const defaultState = {
   cvv: ""
 };
 
-function defaultGetter(event) {
+export function defaultGetter(event) {
   return event.target.value;
 }
 
@@ -16,7 +16,6 @@ export function useCreditForm(state = defaultState) {
   function handleChange(fieldName, getter = defaultGetter) {
     return function(value) {
       value = getter(value);
-      debugger;
       setFormState({ ...formState, [fieldName]: value });
     };
   }
