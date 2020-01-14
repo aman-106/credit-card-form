@@ -30,10 +30,14 @@ export default function CardNumber({ number = "" }) {
 }
 
 function DisplayNum({ num = 0 }) {
-  const props = useSpring({ value: num ? num : 0 });
+  const props = useSpring({
+    value: num ? num : 0, config: {
+      duration: 250,
+    }
+  });
   return (
     <div>
-      <animated.div>{props.value.interpolate(x => x)}</animated.div>
+      <animated.div>{props.value.interpolate(x => Number(x).toFixed())}</animated.div>
     </div>
   );
 }
