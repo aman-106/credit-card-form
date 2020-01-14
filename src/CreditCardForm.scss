@@ -1,0 +1,23 @@
+.credit-card-form {
+
+  position: relative;
+
+  .credit-card-section {
+    .holder {
+      position: absolute;
+      top: 0px;
+
+      .front-side,.back-side{
+        // width: 470px;
+        // height: 210px;
+      }
+    }
+  }
+
+
+  .credit-card-editor {
+    position: relative;
+    top:300px;
+  }
+
+}

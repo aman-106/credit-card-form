@@ -18,7 +18,7 @@ export default function CreditCardForm(props) {
   const [cardSide, handleCardSide] = useCardViewSelector();
   console.log(cardSide);
   return (
-    <Paper classes={{ root: "card" }}>
+    <Paper classes={{ root: "card" }} className="credit-card-editor">
       <div className="section1">
         <TextField
           label={"card number"}

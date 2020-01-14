@@ -11,8 +11,8 @@ export const side = {
 };
 
 export function useSetCardView() {
-  const [cardSide, setCardSide] = useState(side.back);
-  const handleCardSide = useCallback(function(view) {
+  const [cardSide, setCardSide] = useState(side.front);
+  const handleCardSide = useCallback(function (view) {
     switch (view) {
       case side.front:
         setCardSide(side.front);
