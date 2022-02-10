@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@material-ui/core": "4.6.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "ramda": "^0.26.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
